@@ -19,12 +19,30 @@ namespace Clipboard_Stasher
         public ClipboardStasher()
         {
             InitializeComponent();
+            m_trayIcon.Icon = System.Drawing.Icon.ExtractAssociatedIcon("32365.ico");
             _form = new NotificationForm(m_history.Items);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void ClipboardStasher_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void ClipboardStasher_Resize(object sender, EventArgs e)
+        {
+            m_trayIcon.BalloonTipTitle = "Clipboard Stasher";
+            m_trayIcon.BalloonTipText = "Double-click the icon in order to restore the window.";
+
+            if (FormWindowState.Minimized == this.WindowState)
+            {
+                m_trayIcon.Visible = true;
+                m_trayIcon.ShowBalloonTip(500);
+                this.Hide();
+            }
+            else if (FormWindowState.Normal == this.WindowState)
+            {
+                m_trayIcon.Visible = false;
+            }
         }
 
         private class NotificationForm : Form
@@ -68,6 +86,12 @@ namespace Clipboard_Stasher
         private void m_clear_Click(object sender, EventArgs e)
         {
             m_history.Items.Clear();
+        }
+
+        private void m_trayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
         }
     }
 

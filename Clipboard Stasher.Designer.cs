@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.m_history = new System.Windows.Forms.ListBox();
             this.m_clear = new System.Windows.Forms.Button();
+            this.m_trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // m_history
@@ -51,6 +53,12 @@
             this.m_clear.UseVisualStyleBackColor = true;
             this.m_clear.Click += new System.EventHandler(this.m_clear_Click);
             // 
+            // m_trayIcon
+            // 
+            this.m_trayIcon.Text = "Clipboard Stasher";
+            this.m_trayIcon.Visible = true;
+            this.m_trayIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.m_trayIcon_MouseDoubleClick);
+            // 
             // ClipboardStasher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -60,7 +68,8 @@
             this.Controls.Add(this.m_history);
             this.Name = "ClipboardStasher";
             this.Text = "Clipboard Stasher";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.ClipboardStasher_Load);
+            this.Resize += new System.EventHandler(this.ClipboardStasher_Resize);
             this.ResumeLayout(false);
 
         }
@@ -69,6 +78,7 @@
 
         private System.Windows.Forms.ListBox m_history;
         private System.Windows.Forms.Button m_clear;
+        private System.Windows.Forms.NotifyIcon m_trayIcon;
 
 
     }
