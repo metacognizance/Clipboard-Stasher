@@ -20,6 +20,7 @@ namespace Clipboard_Stasher
         {
             InitializeComponent();
             m_trayIcon.Icon = System.Drawing.Icon.ExtractAssociatedIcon("32365.ico");
+            Icon = m_trayIcon.Icon;
             _form = new NotificationForm(m_history.Items);
         }
 
