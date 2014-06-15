@@ -66,15 +66,18 @@ namespace Clipboard_Stasher
                 {
                     handler(null, e);
                 }
-                if (m_history.Count == 0)
+                if (Clipboard.ContainsText(System.Windows.Forms.TextDataFormat.Text))
                 {
-                    m_history.Add((String)System.Windows.Forms.Clipboard.GetData(System.Windows.Forms.DataFormats.StringFormat));
-                }
-                else
-                {
-                    if (m_history[m_history.Count - 1].ToString() != (String)System.Windows.Forms.Clipboard.GetData(System.Windows.Forms.DataFormats.StringFormat))
+                    if (m_history.Count == 0)
                     {
                         m_history.Add((String)System.Windows.Forms.Clipboard.GetData(System.Windows.Forms.DataFormats.StringFormat));
+                    }
+                    else
+                    {
+                        if (m_history[m_history.Count - 1].ToString() != (String)System.Windows.Forms.Clipboard.GetData(System.Windows.Forms.DataFormats.StringFormat))
+                        {
+                            m_history.Add((String)System.Windows.Forms.Clipboard.GetData(System.Windows.Forms.DataFormats.StringFormat));
+                        }
                     }
                 }
             }
