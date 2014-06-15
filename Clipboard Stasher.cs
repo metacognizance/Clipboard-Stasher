@@ -26,7 +26,7 @@ namespace Clipboard_Stasher
 
         private void ClipboardStasher_Load(object sender, EventArgs e)
         {
-            
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void ClipboardStasher_Resize(object sender, EventArgs e)

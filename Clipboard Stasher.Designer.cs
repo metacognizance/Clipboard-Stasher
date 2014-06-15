@@ -39,15 +39,15 @@
             this.m_history.FormattingEnabled = true;
             this.m_history.Location = new System.Drawing.Point(12, 12);
             this.m_history.Name = "m_history";
-            this.m_history.Size = new System.Drawing.Size(260, 212);
+            this.m_history.Size = new System.Drawing.Size(227, 368);
             this.m_history.TabIndex = 0;
             this.m_history.SelectedIndexChanged += new System.EventHandler(this.m_history_SelectedIndexChanged);
             // 
             // m_clear
             // 
-            this.m_clear.Location = new System.Drawing.Point(12, 231);
+            this.m_clear.Location = new System.Drawing.Point(12, 392);
             this.m_clear.Name = "m_clear";
-            this.m_clear.Size = new System.Drawing.Size(260, 23);
+            this.m_clear.Size = new System.Drawing.Size(227, 23);
             this.m_clear.TabIndex = 1;
             this.m_clear.Text = "Clear";
             this.m_clear.UseVisualStyleBackColor = true;
@@ -63,7 +63,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 266);
+            this.ClientSize = new System.Drawing.Size(251, 427);
             this.Controls.Add(this.m_clear);
             this.Controls.Add(this.m_history);
             this.Name = "ClipboardStasher";
