@@ -53,6 +53,11 @@ namespace Clipboard_Stasher
                 m_history = p_history;
                 NativeMethods.SetParent(Handle, NativeMethods.HWND_MESSAGE);
                 NativeMethods.AddClipboardFormatListener(Handle);
+
+                if (Clipboard.ContainsText(System.Windows.Forms.TextDataFormat.Text))
+                {
+                    m_history.Add((String)System.Windows.Forms.Clipboard.GetData(System.Windows.Forms.DataFormats.StringFormat));
+                }
             }
 
             static ListBox.ObjectCollection m_history;
